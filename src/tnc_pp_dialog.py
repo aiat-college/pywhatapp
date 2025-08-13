@@ -32,7 +32,7 @@ def tnc_dialog():
         - We may revise these Terms at any time, with updates posted here and effective immediately upon posting.
 
         ### 7. Contact Information
-        - For any questions or concerns regarding these Terms, please contact us at colab@aiat.edu.in.
+        - For any questions or concerns regarding these Terms, please contact us at tech@aiat.edu.in.
     """)
 
 

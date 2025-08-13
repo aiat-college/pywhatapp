@@ -88,7 +88,7 @@ http://localhost:8501
 
 ## 🛠️ Built With
 - [Streamlit](https://streamlit.io/) – Web app framework for Python
-- [PyWhatKit](https://github.com/Ankit404butfound/PyWhatKit) – WhatsApp messaging automation
+- [PyWhatKit](https://pypi.org/project/pywhatkit/) – WhatsApp messaging automation
 - [Pandas](https://pandas.pydata.org/) – Data processing
 - Python Virtual Environment – For isolated dependency management
 
