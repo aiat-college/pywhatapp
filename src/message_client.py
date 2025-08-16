@@ -1,6 +1,6 @@
 import streamlit as st
-import pywhatkit as kit
-import pandas as pd
+
+from playwrite_client import send_whatsapp_message
 
 def send_quick_message(phone_numbers, message):
     numbers = [num.strip() for num in phone_numbers.split(",") if num.strip()]
@@ -19,13 +19,12 @@ def send_bulk_messages(contact_list, phoneCol, nameCol, message, hasName):
         sendMessage(phone_number, content)     
     return True  
 
-
 def sendMessage(phone_number, message):        
     if not phone_number.startswith("+"):
         phone_number = "+" + phone_number.strip()
     
     try:
-        kit.sendwhatmsg_instantly(phone_no=phone_number, message=message, wait_time=8, tab_close=True, close_time=1)
+        send_whatsapp_message(phone_number, message)
         st.toast(f"Message sent to {phone_number}", icon="✅")
         print(f"Message sent to {phone_number}")        
     except Exception as e:
