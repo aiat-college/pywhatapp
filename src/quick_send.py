@@ -11,10 +11,11 @@ def quick_send():
     if not agree:
         st.warning("To use PyWhatApp, the browser must be logged in to 'WhatsApp Web' (https://web.whatsapp.com/) using the sender’s number. Please complete this step to enable the service.")
         return
-    if st.button("Send Message", type="primary", key="btn_send_quick_message"):
+    if st.button("Send Message", type="primary", key="btn_send_quick_message", disabled=st.session_state.get("is_msg_sending", False)):
         if phone_numbers and message:
             mc.send_quick_message(phone_numbers, message)
         elif phone_numbers is None or phone_numbers.strip() == "":
             st.error("📱 Oops! That phone number doesn’t look right. Use digits only, or separate multiple numbers with commas!")
         elif message is None or message.strip() == "":
             st.error("💬 Your message is empty — type something to send!")
+

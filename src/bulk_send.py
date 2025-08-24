@@ -36,21 +36,21 @@ def bulk_send():
                 with col2:
                     with st.container(border=True):
                         st.markdown(
-                            'Use the placeholder <code style="font-size:1.2em;"><b>%NAME%</b></code> in your message to insert the recipient\'s name.',
+                            'Use the placeholder <code style="font-size:1.2em;"><b>@NAME</b></code> in your message to insert the recipient\'s name.',
                             unsafe_allow_html=True
                         )
             
             msg_hint = "Type your message here . . . . . ."
             if hasName:
-                msg_hint = "Dear  %NAME%,   Greetings from PyWhatApp! . . . . ."
+                msg_hint = "Dear  @NAME,   Greetings from PyWhatApp! . . . . ."
             message = st.text_area("Message:", placeholder=msg_hint, height="content", key="bulk_send_message")
 
             agree = st.checkbox("I confirm that 'WhatsApp Web' is logged in on this browser.", key="bulk_send_agree")
             if not agree:
                 st.warning("To use PyWhatApp, the browser must be logged in to 'WhatsApp Web' (https://web.whatsapp.com/) using the sender’s number. Please complete this step to enable the service.")
                 return
-    
-            if st.button("Send Message", type="primary", key="btn_send_bulk_message"):
+
+            if st.button("Send Message", type="primary", key="btn_send_bulk_message", disabled=st.session_state.get("is_msg_sending", False)):
                 if message is None or message.strip() == "":
                     st.error("💬 Your message is empty — type something to send!")
                 else:
@@ -59,3 +59,4 @@ def bulk_send():
         except Exception as e:
             st.error(f"Error: {e} \n try again later.")
             return               
+        

@@ -34,10 +34,12 @@ def sidebar():
     - ⭐️ Star us on [GitHub](https://github.com/aiat-college/pywhatapp)
     """)
 
-    st.sidebar.warning("Made with ❤️ by the Team [Auroville Institute of Applied Technology](https://aiat.edu.in/)")
-    #st.sidebar.caption("Checkout the source code at [Github](https://github.com/aiat-college/pywhatapp)")
-    st.sidebar.markdown("---")  
     if st.sidebar.button("Terms and Conditions", type="secondary", width="stretch"):
         tp.tnc_dialog()
     if st.sidebar.button("Privacy policy", type="secondary", width="stretch"):
         tp.pp_dialog()
+
+    #st.sidebar.caption("Checkout the source code at [Github](https://github.com/aiat-college/pywhatapp)")
+    st.sidebar.markdown("---")  
+    st.sidebar.warning("Made with ❤️ by the Team [Auroville Institute of Applied Technology](https://aiat.edu.in/)")
+    
